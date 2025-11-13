@@ -1,0 +1,14 @@
+2025/11/13-16:11:31.696 32fc Reusing MANIFEST D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/MANIFEST-000001
+2025/11/13-16:11:31.696 32fc Recovering log #71
+2025/11/13-16:11:31.696 32fc Reusing old log D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/000071.log 
+2025/11/13-16:11:31.709 8414 Level-0 table #75: started
+2025/11/13-16:11:31.712 8414 Level-0 table #75: 3669 bytes OK
+2025/11/13-16:11:31.714 8414 Delete type=0 #71
+2025/11/13-16:11:31.715 8414 Manual compaction at level-0 from '\x00#\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00$\x00\x00\x00' @ 0 : 0; will stop at '\x00#\x00\x00\x05' @ 1705 : 1
+2025/11/13-16:11:31.715 8414 Compacting 1@0 + 1@1 files
+2025/11/13-16:11:31.718 8414 Generated table #76@0: 34 keys, 990 bytes
+2025/11/13-16:11:31.718 8414 Compacted 1@0 + 1@1 files => 990 bytes
+2025/11/13-16:11:31.720 8414 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/11/13-16:11:31.720 8414 Delete type=2 #75
+2025/11/13-16:11:31.720 8414 Manual compaction at level-0 from '\x00#\x00\x00\x05' @ 1705 : 1 .. '\x00$\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/11/13-16:11:31.985 65cc Manual compaction at level-0 from '\x00$\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00%\x00\x00\x00' @ 0 : 0; will stop at (end)

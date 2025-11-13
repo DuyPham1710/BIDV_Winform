@@ -1,0 +1,5 @@
+2025/11/13-16:05:31.634 8b3c Reusing MANIFEST D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/MANIFEST-000001
+2025/11/13-16:05:31.635 8b3c Recovering log #71
+2025/11/13-16:05:31.635 8b3c Reusing old log D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/000071.log 
+2025/11/13-16:05:31.810 65cc Manual compaction at level-0 from '\x00!\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00"\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/11/13-16:05:32.077 65cc Manual compaction at level-0 from '\x00"\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00#\x00\x00\x00' @ 0 : 0; will stop at (end)
