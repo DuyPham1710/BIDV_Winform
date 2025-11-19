@@ -32,3 +32,4 @@ D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\Microsoft.Web.WebVi
 D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.Wpf.xml
 D:\Intern\BIDV_Winform\BIDV_Winform\obj\Debug\net9.0-windows\BIDV_Winform.sourcelink.json
 D:\Intern\BIDV_Winform\BIDV_Winform\obj\Debug\net9.0-windows\BIDV_Winform.FOtp.resources
+D:\Intern\BIDV_Winform\BIDV_Winform\obj\Debug\net9.0-windows\BIDV_Winform.FHome.resources

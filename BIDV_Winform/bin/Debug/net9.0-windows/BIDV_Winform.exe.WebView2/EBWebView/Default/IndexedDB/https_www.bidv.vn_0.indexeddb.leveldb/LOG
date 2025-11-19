@@ -1,25 +1,25 @@
-2025/11/15-12:03:14.240 4ba4 Reusing MANIFEST D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/MANIFEST-000001
-2025/11/15-12:03:14.241 4ba4 Recovering log #113
-2025/11/15-12:03:14.241 4ba4 Reusing old log D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/000113.log 
-2025/11/15-12:03:14.242 4ba4 Delete type=2 #112
-2025/11/15-12:03:14.264 1694 Level-0 table #118: started
-2025/11/15-12:03:14.265 1694 Level-0 table #118: 1913 bytes OK
-2025/11/15-12:03:14.267 1694 Delete type=0 #113
-2025/11/15-12:03:14.268 1694 Manual compaction at level-0 from '\x001\x00\x00\x00' @ 72057594037927935 : 1 .. '\x002\x00\x00\x00' @ 0 : 0; will stop at '\x001\x00\x00\x05' @ 2415 : 1
-2025/11/15-12:03:14.268 1694 Compacting 1@0 + 1@1 files
-2025/11/15-12:03:14.270 1694 Generated table #119@0: 53 keys, 1219 bytes
-2025/11/15-12:03:14.270 1694 Compacted 1@0 + 1@1 files => 1219 bytes
-2025/11/15-12:03:14.271 1694 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/11/15-12:03:14.272 1694 Delete type=2 #118
-2025/11/15-12:03:14.272 1694 Manual compaction at level-0 from '\x001\x00\x00\x05' @ 2415 : 1 .. '\x002\x00\x00\x00' @ 0 : 0; will stop at (end)
-2025/11/15-12:03:14.527 1694 Level-0 table #121: started
-2025/11/15-12:03:14.530 1694 Level-0 table #121: 647 bytes OK
-2025/11/15-12:03:14.532 1694 Delete type=2 #115
-2025/11/15-12:03:14.532 1694 Delete type=0 #117
-2025/11/15-12:03:14.533 1694 Manual compaction at level-0 from '\x002\x00\x00\x00' @ 72057594037927935 : 1 .. '\x003\x00\x00\x00' @ 0 : 0; will stop at '\x002\x00\x00\x05' @ 2434 : 1
-2025/11/15-12:03:14.533 1694 Compacting 1@0 + 1@1 files
-2025/11/15-12:03:14.535 1694 Generated table #122@0: 53 keys, 1221 bytes
-2025/11/15-12:03:14.535 1694 Compacted 1@0 + 1@1 files => 1221 bytes
-2025/11/15-12:03:14.536 1694 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/11/15-12:03:14.537 1694 Delete type=2 #121
-2025/11/15-12:03:14.537 1694 Manual compaction at level-0 from '\x002\x00\x00\x05' @ 2434 : 1 .. '\x003\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/11/19-11:08:13.073 4c60 Reusing MANIFEST D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/MANIFEST-000001
+2025/11/19-11:08:13.074 4c60 Recovering log #148
+2025/11/19-11:08:13.074 4c60 Reusing old log D:\Intern\BIDV_Winform\BIDV_Winform\bin\Debug\net9.0-windows\BIDV_Winform.exe.WebView2\EBWebView\Default\IndexedDB\https_www.bidv.vn_0.indexeddb.leveldb/000148.log 
+2025/11/19-11:08:13.075 4c60 Delete type=2 #147
+2025/11/19-11:08:13.094 4c60 Level-0 table #153: started
+2025/11/19-11:08:13.097 4c60 Level-0 table #153: 1926 bytes OK
+2025/11/19-11:08:13.099 4c60 Delete type=0 #148
+2025/11/19-11:08:13.099 4c60 Manual compaction at level-0 from '\x00;\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00<\x00\x00\x00' @ 0 : 0; will stop at '\x00;\x00\x00\x05' @ 2929 : 1
+2025/11/19-11:08:13.100 4c60 Compacting 1@0 + 1@1 files
+2025/11/19-11:08:13.102 4c60 Generated table #154@0: 53 keys, 1221 bytes
+2025/11/19-11:08:13.102 4c60 Compacted 1@0 + 1@1 files => 1221 bytes
+2025/11/19-11:08:13.103 4c60 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/11/19-11:08:13.103 4c60 Delete type=2 #153
+2025/11/19-11:08:13.104 4c60 Manual compaction at level-0 from '\x00;\x00\x00\x05' @ 2929 : 1 .. '\x00<\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/11/19-11:08:13.379 1cc Level-0 table #156: started
+2025/11/19-11:08:13.382 1cc Level-0 table #156: 646 bytes OK
+2025/11/19-11:08:13.384 1cc Delete type=2 #150
+2025/11/19-11:08:13.384 1cc Delete type=0 #152
+2025/11/19-11:08:13.385 4c60 Manual compaction at level-0 from '\x00<\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00=\x00\x00\x00' @ 0 : 0; will stop at '\x00<\x00\x00\x05' @ 2948 : 1
+2025/11/19-11:08:13.385 4c60 Compacting 1@0 + 1@1 files
+2025/11/19-11:08:13.387 4c60 Generated table #157@0: 53 keys, 1221 bytes
+2025/11/19-11:08:13.387 4c60 Compacted 1@0 + 1@1 files => 1221 bytes
+2025/11/19-11:08:13.388 4c60 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/11/19-11:08:13.389 4c60 Delete type=2 #156
+2025/11/19-11:08:13.389 4c60 Manual compaction at level-0 from '\x00<\x00\x00\x05' @ 2948 : 1 .. '\x00=\x00\x00\x00' @ 0 : 0; will stop at (end)

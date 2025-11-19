@@ -1,62 +1,32 @@
-﻿using BIDV_Winform.dto;
+﻿using BIDV_Winform.Constansts;
 using BIDV_Winform.helper;
 using BIDV_Winform.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Newtonsoft.Json;
 using System.Net;
-using System.Security.Cryptography;
-using System.Security.Policy;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace BIDV_Winform.Services
 {
-    public class LoginResult
-    {
-        public bool IsSuccess { get; set; }
-        public string RedirectUrl { get; set; } // Sẽ chứa Location header
-        public string ErrorMessage { get; set; }
-    }
-
     public class BIDVService
     {
         private readonly CookieContainer _cookieJar = new CookieContainer();
         private HttpClient _httpClient;
         private HtmlAgilityPack.HtmlDocument _doc;
-        // URI mà chúng ta mong đợi khi thành công
-        private const string ExpectedRedirectUriStart = "https://www.bidv.vn/BIDVDirect/?locale=en-US#state=";
 
-        public string State { get; private set; }
-        public string Nonce { get; private set; }
-        public string CodeChallenge { get; private set; }
+        // URI đợi khi thành công
+        private const string ExpectedRedirectUriStart = "https://www.bidv.vn/BIDVDirect/?locale=vi-vn#state=";
+
         public string CodeVerifier { get; private set; }
-
-        public const string RedirectUri = "https://www.bidv.vn/BIDVDirect/?locale=vi-vn";
-        public const string ClientId = "ibank-fo";
-
-        //public BIDVService()
-        //{
-        //    //InitHttpClient();
-
-        //    // Sinh state và nonce giống hàm h() trong JS (UUID v4)
-        //    State = BIDVHelper.GenerateUuidV4();
-        //    Nonce = BIDVHelper.GenerateUuidV4();
-
-        //    // Tạo cặp PKCE verifier/challenge
-        //    CodeVerifier = BIDVHelper.GenerateRandomString(96); // JS dùng D(96)
-        //    CodeChallenge = BIDVHelper.GeneratePkceChallenge(CodeVerifier);
-        //}
+        public string Code { get; private set; }
 
         public void generateLoginUrl()
         {
-            State = BIDVHelper.GenerateUuidV4();
-            Nonce = BIDVHelper.GenerateUuidV4();
+            LoginUrlModel.State = BIDVHelper.GenerateUuidV4();
+            LoginUrlModel.Nonce = BIDVHelper.GenerateUuidV4();
 
             // Tạo cặp PKCE verifier/challenge
-            CodeVerifier = BIDVHelper.GenerateRandomString(96); // JS dùng D(96)
-            CodeChallenge = BIDVHelper.GeneratePkceChallenge(CodeVerifier);
+            CodeVerifier = BIDVHelper.GenerateRandomString(96);
+            LoginUrlModel.CodeChallenge = BIDVHelper.GeneratePkceChallenge(CodeVerifier);
         }
 
         public void AddCookie(string loginUrl, string name, string value, string domain, string path = "/", bool secure = false, bool httpOnly = false, DateTime? expires = null)
@@ -86,13 +56,9 @@ namespace BIDV_Winform.Services
 
         public void InitHttpClient()
         {
-          //  var baseUri = new Uri("https://www.bidv.vn/");
-            //_cookieJar.Add(baseUri, new Cookie("I_DEVICE_ID",
-            //    "YzE5Y2VhZjdmNjhhNGMwZGFkNjMwYTE5M2FkZTQ5Y2U2N2FmN2Y4YjAyMThmNjFhMGExMTJjZDcwM2JjMjBjZA=="));
-
-
             var handler = new HttpClientHandler
             {
+                AllowAutoRedirect = false,
                 UseCookies = true,
                 CookieContainer = _cookieJar,
                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
@@ -111,7 +77,7 @@ namespace BIDV_Winform.Services
 
             string timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
             var payload = new { };
-            var json = JsonSerializer.Serialize(payload);
+            var json = JsonConvert.SerializeObject(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var request = new HttpRequestMessage(HttpMethod.Post, url);
@@ -126,35 +92,28 @@ namespace BIDV_Winform.Services
             var response = await _httpClient.SendAsync(request);
             var responseBody = await response.Content.ReadAsStringAsync();
 
-            //System.Diagnostics.Debug.WriteLine("Raw Response:");
-            //System.Diagnostics.Debug.WriteLine(responseBody);
-
-            var captchaResponse = JsonSerializer.Deserialize<CaptchaResponseModel>(responseBody, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
+            var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponseModel>(responseBody);
 
             return captchaResponse;
         }
 
         public string GetLoginUrl()
         {
-            string encodedRedirectUri = Uri.EscapeDataString(RedirectUri);
+            string encodedRedirectUri = Uri.EscapeDataString(LoginUrlModel.RedirectUri);
             return $"https://www.bidv.vn/sso/direct/realms/bidvdirect/protocol/openid-connect/auth?" +
-                   $"client_id={ClientId}" +
+                   $"client_id={LoginUrlModel.ClientId}" +
                    $"&redirect_uri={encodedRedirectUri}" +
-                   $"&state={State}" +
+                   $"&state={LoginUrlModel.State}" +
                    $"&response_mode=fragment" +
                    $"&response_type=code" +
                    $"&scope=openid" +
-                   $"&nonce={Nonce}" +
-                   $"&code_challenge={CodeChallenge}" +
+                   $"&nonce={LoginUrlModel.Nonce}" +
+                   $"&code_challenge={LoginUrlModel.CodeChallenge}" +
                    $"&code_challenge_method=S256" +
                    $"&ui_locales=vi-vn";
         }
         public void updateHtml(string html)
         {
-            //   File.WriteAllText("debugHomePage.html", html);
             _doc = new HtmlAgilityPack.HtmlDocument();
             _doc.LoadHtml(html);
         }
@@ -165,24 +124,21 @@ namespace BIDV_Winform.Services
             response.EnsureSuccessStatusCode();
             string html = await response.Content.ReadAsStringAsync();
           
-            File.WriteAllText("debugLogin1.html", html);
+          //  File.WriteAllText("debugLogin1.html", html);
             _doc = new HtmlAgilityPack.HtmlDocument();
             _doc.LoadHtml(html);
         }
 
-        public string? GetActionUrl(string baseUrl)
+        public string? GetActionUrlById(string id)
         {
             if (_doc == null) return null;
 
-            var formNode = _doc.DocumentNode.SelectSingleNode("//form[@id='kc-form-login']");
+            var formNode = _doc.DocumentNode.SelectSingleNode($"//form[@id='{id}']");
             var action = formNode?.GetAttributeValue("action", "");
 
             if (string.IsNullOrEmpty(action)) return null;
 
-            Uri baseUri = new Uri(baseUrl);
-            Uri actionUri = new Uri(baseUri, action);
-
-            return actionUri.ToString();
+            return action.ToString();
         }
 
         public string? GetValueById(string id)
@@ -197,30 +153,31 @@ namespace BIDV_Winform.Services
         
             return value.ToString();
         }
-        public void PrintCookies(string domain = "https://www.bidv.vn/")
-        {
-            try
-            {
-                Uri uri = new Uri(domain);
-                var cookies = _cookieJar.GetCookies(uri);
 
-                System.Diagnostics.Debug.WriteLine($"🍪 Cookies for {domain}: ({cookies.Count})");
-                foreach (Cookie cookie in cookies)
-                {
-                    System.Diagnostics.Debug.WriteLine($"{cookie.Domain}\t{cookie.Name}={cookie.Value}");
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"⚠️ Error printing cookies: {ex.Message}");
-            }
-        }
+        //public void PrintCookies(string domain = "https://www.bidv.vn/")
+        //{
+        //    try
+        //    {
+        //        Uri uri = new Uri(domain);
+        //        var cookies = _cookieJar.GetCookies(uri);
+
+        //        System.Diagnostics.Debug.WriteLine($"🍪 Cookies for {domain}: ({cookies.Count})");
+        //        foreach (Cookie cookie in cookies)
+        //        {
+        //            System.Diagnostics.Debug.WriteLine($"{cookie.Domain}\t{cookie.Name}={cookie.Value}");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine($"⚠️ Error printing cookies: {ex.Message}");
+        //    }
+        //}
 
 
         /// <summary>
         /// Gọi API đăng nhập authenticate với payload đã mã hóa
         /// </summary>
-        public async void FormSubmitAsync(string encryptedPayload, string actionUrl, string loginUrl)
+        public async Task<bool> FormSubmitAsync(string encryptedPayload, string actionUrl)
         {
             try
             {
@@ -228,70 +185,82 @@ namespace BIDV_Winform.Services
                 {
                     { "encrypted_payload", encryptedPayload }
                 };
+
                 var content = new FormUrlEncodedContent(formData);
    
-                //System.Diagnostics.Debug.WriteLine("=== Before Login Request ===");
-                //PrintCookies(loginUrl);
-
                 HttpResponseMessage response = await _httpClient.PostAsync(actionUrl, content);
 
-                //System.Diagnostics.Debug.WriteLine("=== After Login Request ===");
-                //PrintCookies(loginUrl);
-
                 string html = await response.Content.ReadAsStringAsync();
-                File.WriteAllText("debug.html", html);
-        //        MessageBox.Show(response.StatusCode.ToString());
+          //      File.WriteAllText("debug.html", html);
 
                 updateHtml(html);
-                string location = response.Headers.Location?.OriginalString;
 
-                MessageBox.Show(location);
-                //if (response.StatusCode == HttpStatusCode.Found) // 302
-                //{
-                //    string location = response.Headers.Location?.OriginalString;
+                //      return response.StatusCode == HttpStatusCode.OK;
+                if (response.StatusCode == HttpStatusCode.Found) // 302
+                {
+                    string location = response.Headers.Location?.OriginalString;
 
-                //    MessageBox.Show(location);
-                //}
-                //else
-                //{
-                //    MessageBox.Show(response.StatusCode.ToString());
-                //}
-                    //if (response.StatusCode == HttpStatusCode.Found) // 302
-                    //{
-                    //    string location = response.Headers.Location?.OriginalString;
-
-                    //    if (string.IsNullOrEmpty(location))
-                    //    {
-                    //        return new LoginResult { ErrorMessage = "Lỗi: Server trả về 302 nhưng không có Location header." };
-                    //    }
-
-                    //    // 4. Phân biệt thành công hay thất bại
-                    //    if (location.StartsWith(ExpectedRedirectUriStart))
-                    //    {
-                    //        // THÀNH CÔNG! Chuyển hướng về trang app với 'code'
-                    //        return new LoginResult { IsSuccess = true, RedirectUrl = location };
-                    //    }
-                    //    else
-                    //    {
-                    //        // THẤT BẠI! (Ví dụ: sai mật khẩu, sai captcha)
-                    //        // Server chuyển hướng về lại trang login
-                    //        return new LoginResult { ErrorMessage = "Thông tin đăng nhập hoặc Captcha không chính xác." };
-                    //    }
-                    //}
-
-                    //// Nếu server trả về 200 OK (nghĩa là nó chỉ tải lại trang login)
-                    //if (response.IsSuccessStatusCode)
-                    //{
-                    //    return new LoginResult { ErrorMessage = "Đăng nhập thất bại (Server trả về 200 OK, có thể do session hết hạn)." };
-                    //}
-
-                    //// Các lỗi khác (500, 404...)
-                    //return new LoginResult { ErrorMessage = $"Lỗi máy chủ: {response.StatusCode}" };
+                    // Phân biệt thành công hay thất bại
+                    if (location.StartsWith(ExpectedRedirectUriStart))
+                    {
+                        // THÀNH CÔNG! Chuyển hướng về trang app với 'code'
+                        Code = BIDVHelper.GetCodeFromUrl(location);
+                    }
+                    
+                    return false; // lấy được code
                 }
+
+                // Nếu server trả về 200 OK
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+
+                // Các lỗi khác (500, 404...)
+                return true;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message );
-               // return new LoginResult { ErrorMessage = $"Lỗi mạng: {ex.Message}" };
+                return false;
+               // return new FormResult { ErrorMessage = $"Lỗi mạng: {ex.Message}" };
+            }
+        }
+
+        public async Task<LoginResponse> GetTokenAsync(LoginRequest request)
+        {
+            try
+            {
+                var postData = new Dictionary<string, string>
+                {
+                    { "code", request.Code },
+                    { "grant_type", request.Grant_type },
+                    { "client_id", request.Client_id },
+                    { "redirect_uri", request.Redirect_uri },
+                    { "code_verifier", request.Code_verifier }
+                };
+
+                var content = new FormUrlEncodedContent(postData);
+
+                // Gửi Request POST
+                HttpResponseMessage response = await _httpClient.PostAsync(GlConstants.TOKEN_URL, content);
+
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                // Kiểm tra lỗi
+                if (!response.IsSuccessStatusCode)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Lỗi GetToken: {response.StatusCode} - {jsonResponse}");
+                    return null;
+                }
+
+                // Deserialize JSON về đối tượng LoginResponse
+                return JsonConvert.DeserializeObject<LoginResponse>(jsonResponse);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Exception GetToken: {ex.Message}");
+                return null;
             }
         }
     }

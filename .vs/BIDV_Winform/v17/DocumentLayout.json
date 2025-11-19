@@ -11,40 +11,60 @@
       "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\services\\bidvservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\constansts\\glconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\constansts\\glconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\helper\\bidvhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\helper\\bidvhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\fotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\fotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\fotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\fotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|D:\\Intern\\BIDV_Winform\\bidv_winform\\fotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\fotp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|D:\\Intern\\BIDV_Winform\\bidv_winform\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\helper\\bidvencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\helper\\bidvencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\dto\\loginpayloaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\dto\\loginpayloaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|D:\\Intern\\BIDV_Winform\\bidv_winform\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\fhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\models\\loginurlmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\models\\loginurlmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\models\\otppayloadrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\models\\otppayloadrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\helper\\bidvhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\helper\\bidvhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\models\\formpayloadrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\models\\formpayloadrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\models\\captcharesponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\models\\captcharesponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\helper\\bidvencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\helper\\bidvencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\constansts\\glconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|solutionrelative:bidv_winform\\constansts\\glconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1CE36CD1-6BA7-4833-9E45-9CE103CA156D}|BIDV_Winform\\BIDV_Winform.csproj|d:\\intern\\bidv_winform\\bidv_winform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -68,7 +88,7 @@
               "RelativeDocumentMoniker": "BIDV_Winform\\FLogin.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FLogin.cs",
               "RelativeToolTip": "BIDV_Winform\\FLogin.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAgwE0AAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAAAGoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T08:06:39.509Z",
               "IsPinned": true,
@@ -82,7 +102,7 @@
               "RelativeDocumentMoniker": "BIDV_Winform\\Services\\BIDVService.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\Services\\BIDVService.cs",
               "RelativeToolTip": "BIDV_Winform\\Services\\BIDVService.cs",
-              "ViewState": "AgIAAM8AAAAAAAAAAAAowBgBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAnwMEAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T08:53:54.049Z",
               "IsPinned": true,
@@ -98,91 +118,153 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "FHome.cs",
+              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FHome.cs",
+              "RelativeDocumentMoniker": "BIDV_Winform\\FHome.cs",
+              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FHome.cs",
+              "RelativeToolTip": "BIDV_Winform\\FHome.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T08:12:21.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginUrlModel.cs",
+              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\LoginUrlModel.cs",
+              "RelativeDocumentMoniker": "BIDV_Winform\\models\\LoginUrlModel.cs",
+              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\LoginUrlModel.cs",
+              "RelativeToolTip": "BIDV_Winform\\models\\LoginUrlModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T08:07:30.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "BIDV_Winform\\models\\LoginResponse.cs",
+              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\LoginResponse.cs",
+              "RelativeToolTip": "BIDV_Winform\\models\\LoginResponse.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T07:46:24.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FHome.cs [Design]",
+              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FHome.cs",
+              "RelativeDocumentMoniker": "BIDV_Winform\\FHome.cs",
+              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FHome.cs [Design]",
+              "RelativeToolTip": "BIDV_Winform\\FHome.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T05:02:30.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OtpPayloadRequest.cs",
+              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\OtpPayloadRequest.cs",
+              "RelativeDocumentMoniker": "BIDV_Winform\\models\\OtpPayloadRequest.cs",
+              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\OtpPayloadRequest.cs",
+              "RelativeToolTip": "BIDV_Winform\\models\\OtpPayloadRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T03:39:32.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FOtp.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FOtp.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\FOtp.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FOtp.cs",
               "RelativeToolTip": "BIDV_Winform\\FOtp.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-15T04:57:07.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FOtp.cs [Design]",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FOtp.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\FOtp.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\FOtp.cs [Design]",
               "RelativeToolTip": "BIDV_Winform\\FOtp.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-15T04:46:52.61Z"
+              "WhenOpened": "2025-11-15T04:46:52.61Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "BidvEncryptor.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\helper\\BidvEncryptor.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\helper\\BidvEncryptor.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\helper\\BidvEncryptor.cs",
               "RelativeToolTip": "BIDV_Winform\\helper\\BidvEncryptor.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAApwBUAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-12T03:49:25.677Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginPayloadDto.cs",
-              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\dto\\LoginPayloadDto.cs",
-              "RelativeDocumentMoniker": "BIDV_Winform\\dto\\LoginPayloadDto.cs",
-              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\dto\\LoginPayloadDto.cs",
-              "RelativeToolTip": "BIDV_Winform\\dto\\LoginPayloadDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAA0AAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "FormPayloadRequest.cs",
+              "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\FormPayloadRequest.cs",
+              "RelativeDocumentMoniker": "BIDV_Winform\\models\\FormPayloadRequest.cs",
+              "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\FormPayloadRequest.cs",
+              "RelativeToolTip": "BIDV_Winform\\models\\FormPayloadRequest.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-06T09:21:55.114Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\models\\LoginRequest.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\LoginRequest.cs",
               "RelativeToolTip": "BIDV_Winform\\models\\LoginRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T09:40:40.774Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "CaptchaResponseModel.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\CaptchaResponseModel.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\models\\CaptchaResponseModel.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\models\\CaptchaResponseModel.cs",
               "RelativeToolTip": "BIDV_Winform\\models\\CaptchaResponseModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBMAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T09:25:42.649Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "BIDVHelper.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\helper\\BIDVHelper.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\helper\\BIDVHelper.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\helper\\BIDVHelper.cs",
               "RelativeToolTip": "BIDV_Winform\\helper\\BIDVHelper.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAIwIAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAE8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T09:03:59.704Z"
+              "WhenOpened": "2025-11-05T09:03:59.704Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\Program.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\Program.cs",
@@ -194,13 +276,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 15,
               "Title": "GlConstants.cs",
               "DocumentMoniker": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\Constansts\\GlConstants.cs",
               "RelativeDocumentMoniker": "BIDV_Winform\\Constansts\\GlConstants.cs",
               "ToolTip": "D:\\Intern\\BIDV_Winform\\BIDV_Winform\\Constansts\\GlConstants.cs",
               "RelativeToolTip": "BIDV_Winform\\Constansts\\GlConstants.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T07:46:20.64Z"
             },

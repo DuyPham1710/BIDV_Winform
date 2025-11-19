@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            maskedTextBox1 = new MaskedTextBox();
-            label2 = new Label();
+            txtOtp = new MaskedTextBox();
+            lblTitle = new Label();
             label1 = new Label();
             lblResend = new Label();
             btnClose = new Button();
@@ -37,22 +37,22 @@
             lblExpired = new Label();
             SuspendLayout();
             // 
-            // maskedTextBox1
+            // txtOtp
             // 
-            maskedTextBox1.Location = new Point(243, 105);
-            maskedTextBox1.Mask = "000000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(225, 27);
-            maskedTextBox1.TabIndex = 1;
+            txtOtp.Location = new Point(243, 105);
+            txtOtp.Mask = "000000";
+            txtOtp.Name = "txtOtp";
+            txtOtp.Size = new Size(225, 27);
+            txtOtp.TabIndex = 1;
             // 
-            // label2
+            // lblTitle
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(90, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(571, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Please enter the OTP code sent to your phone number *********278 for authentication.";
+            lblTitle.AutoSize = true;
+            lblTitle.Location = new Point(90, 51);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(571, 20);
+            lblTitle.TabIndex = 3;
+            lblTitle.Text = "Please enter the OTP code sent to your phone number *********278 for authentication.";
             // 
             // label1
             // 
@@ -71,6 +71,7 @@
             lblResend.Size = new Size(96, 20);
             lblResend.TabIndex = 5;
             lblResend.Text = "Resend after ";
+            lblResend.Click += lblResend_Click;
             // 
             // btnClose
             // 
@@ -80,6 +81,7 @@
             btnClose.TabIndex = 6;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // btnConfirm
             // 
@@ -91,6 +93,7 @@
             btnConfirm.TabIndex = 7;
             btnConfirm.Text = "Confirm";
             btnConfirm.UseVisualStyleBackColor = false;
+            btnConfirm.Click += btnConfirm_Click;
             // 
             // lblExpired
             // 
@@ -113,8 +116,8 @@
             Controls.Add(btnClose);
             Controls.Add(lblResend);
             Controls.Add(label1);
-            Controls.Add(label2);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(lblTitle);
+            Controls.Add(txtOtp);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FOtp";
             StartPosition = FormStartPosition.CenterScreen;
@@ -125,8 +128,8 @@
 
         #endregion
 
-        private MaskedTextBox maskedTextBox1;
-        private Label label2;
+        private MaskedTextBox txtOtp;
+        private Label lblTitle;
         private Label label1;
         private Label lblResend;
         private Button btnClose;

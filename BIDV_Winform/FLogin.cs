@@ -1,8 +1,7 @@
 ﻿using BIDV_Winform.Constansts;
-using BIDV_Winform.dto;
 using BIDV_Winform.helper;
+using BIDV_Winform.models;
 using BIDV_Winform.Services;
-using Newtonsoft.Json;
 using Microsoft.Web.WebView2.WinForms;
 
 namespace BIDV_Winform
@@ -82,10 +81,10 @@ namespace BIDV_Winform
                     string cookieName = c.Name;
                     string cookieValue = c.Value;
 
-                    //if (cookieName == "I_DEVICE_ID")
-                    //{
-                    //    cookieValue = GlConstants.I_DEVICE_ID;
-                    //}
+                    if (cookieName == "I_DEVICE_ID")
+                    {
+                        cookieValue = GlConstants.I_DEVICE_ID;
+                    }
 
                     _bidvService.AddCookie(
                         _loginUrl, cookieName, cookieValue, c.Domain, c.Path ?? "/",
@@ -105,7 +104,7 @@ namespace BIDV_Winform
                 if (!string.IsNullOrEmpty(loginHtmlStr))
                 {
                     _bidvService.updateHtml(loginHtmlStr);
-                    File.WriteAllText("debugLogin.html", loginHtmlStr);
+               //     File.WriteAllText("debugLogin.html", loginHtmlStr);
                     _bidvService.InitHttpClient();
                 }
 
@@ -113,7 +112,7 @@ namespace BIDV_Winform
                 await LoadCaptcha();
 
                 // Lấy Action URL
-                _actionUrl = _bidvService.GetActionUrl(_loginUrl);
+                _actionUrl = _bidvService.GetActionUrlById("kc-form-login");
             }
             catch (Exception ex)
             {
@@ -151,7 +150,7 @@ namespace BIDV_Winform
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            var loginData = new LoginPayloadDto
+            var req = new FormPayloadRequest
             {
                 Username = txtUsername.Text.ToUpper(),
                 Password = txtPassword.Text,
@@ -160,60 +159,64 @@ namespace BIDV_Winform
                 TypeSubmit = ""
             };
 
-            string jsonPayload = JsonConvert.SerializeObject(loginData);
-
             string publicKey = _bidvService.GetValueById("publicKeyJwe");
             string privateKey = _bidvService.GetValueById("privateKeyJws");
 
 
-            string encryptedPayload = BidvEncryptor.GenerateEncryptedPayload(loginData, privateKey, publicKey);
+            string encryptedPayload = BidvEncryptor.GenerateEncryptedPayload(req, privateKey, publicKey);
 
-            //        MessageBox.Show(encryptedPayload);
-            _bidvService.FormSubmitAsync(encryptedPayload, _actionUrl, _loginUrl);
-
-            await RefreshLoginDataAsync();
-            //if (result.IsSuccess)
-            //{
-            //    // THÀNH CÔNG! Lấy 'code' từ Location header
-            //    string locationUrl = result.RedirectUrl;
-            //    MessageBox.Show("Đăng nhập thành công! Đang phân tích URL:\n" + locationUrl);
-
-            //    // Dùng Uri để phân tích fragment (phần sau dấu #)
-            //    var uri = new Uri(locationUrl);
-            //    string fragment = uri.Fragment; // Sẽ là: "#state=...&code=..."
-
-            //    if (string.IsNullOrEmpty(fragment))
-            //    {
-            //        MessageBox.Show("Lỗi: Không tìm thấy fragment (#) trong URL redirect.");
-            //        return;
-            //    }
-
-            //    // Dùng HttpUtility.ParseQueryString để bóc tách các tham số
-            //    var queryParams = HttpUtility.ParseQueryString(fragment.Substring(1)); // Bỏ dấu #
-
-            //    string code = queryParams["code"];
-            //    string state = queryParams["state"];
-
-            //    if (!string.IsNullOrEmpty(code))
-            //    {
-            //        MessageBox.Show($"LẤY CODE THÀNH CÔNG!\n\nCode: {code}\n\nState: {state}");
-
-            //        // BƯỚC TIẾP THEO: Dùng code và code_verifier để lấy Token
-            //        // await CallTokenApiAsync(code, _currentCodeVerifier);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Lỗi: Đã đăng nhập nhưng không tìm thấy 'code' trong URL.");
-            //    }
-            //}
-            //else
-            //{
-            //    // THẤT BẠI
-            //    MessageBox.Show($"Đăng nhập thất bại: {result.ErrorMessage}");
-            //    await RefreshLoginDataAsync();
-            //}
+            bool statusCode200 =  await _bidvService.FormSubmitAsync(encryptedPayload, _actionUrl);
 
 
+            if (statusCode200)
+            {
+                string actionUrlOtp = _bidvService.GetActionUrlById("kc-otp-login-form");
+
+                if (actionUrlOtp != null)
+                {
+                    FOtp fOtp = new FOtp(_bidvService, actionUrlOtp);
+                    this.Hide();
+                    fOtp.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("action URL OTP is empty!!!");
+                }
+
+            }
+            else // server có trả về code thì thực hiện call API /token
+            {
+                var loginDto = new LoginRequest
+                {
+                    Code = _bidvService.Code,
+                    Code_verifier = _bidvService.CodeVerifier,
+                };
+
+                LoginResponse tokenResponse = await _bidvService.GetTokenAsync(loginDto);
+
+                if (tokenResponse != null && !string.IsNullOrEmpty(tokenResponse.AccessToken))
+                {
+                    FHome fHome = new FHome();
+                    this.Hide();
+                    fHome.ShowDialog();
+                    this.Show();
+                    //MessageBox.Show("LẤY TOKEN THÀNH CÔNG!");
+
+                    //// In thử Access Token ra xem
+                    //System.Diagnostics.Debug.WriteLine("Access Token: " + tokenResponse.AccessToken);
+                    //System.Diagnostics.Debug.WriteLine("Refresh Token: " + tokenResponse.RefreshToken);
+
+                    // TODO: Lưu tokenResponse này lại để dùng cho các API chuyển tiền/lấy số dư sau này
+                    // _bidvService.SetAuthToken(tokenResponse.AccessToken);
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi: Không lấy được Token.");
+                }
+            }
+
+            await RefreshLoginDataAsync();  
         }
     }
 }
