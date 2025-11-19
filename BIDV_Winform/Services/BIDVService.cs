@@ -26,7 +26,7 @@ namespace BIDV_Winform.Services
         private HttpClient _httpClient;
         private HtmlAgilityPack.HtmlDocument _doc;
         // URI mà chúng ta mong đợi khi thành công
-        private const string ExpectedRedirectUriStart = "https://www.bidv.vn/BIDVDirect/";
+        private const string ExpectedRedirectUriStart = "https://www.bidv.vn/BIDVDirect/?locale=en-US#state=";
 
         public string State { get; private set; }
         public string Nonce { get; private set; }
@@ -36,11 +36,21 @@ namespace BIDV_Winform.Services
         public const string RedirectUri = "https://www.bidv.vn/BIDVDirect/?locale=vi-vn";
         public const string ClientId = "ibank-fo";
 
-        public BIDVService()
-        {
-            //InitHttpClient();
+        //public BIDVService()
+        //{
+        //    //InitHttpClient();
 
-            // Sinh state và nonce giống hàm h() trong JS (UUID v4)
+        //    // Sinh state và nonce giống hàm h() trong JS (UUID v4)
+        //    State = BIDVHelper.GenerateUuidV4();
+        //    Nonce = BIDVHelper.GenerateUuidV4();
+
+        //    // Tạo cặp PKCE verifier/challenge
+        //    CodeVerifier = BIDVHelper.GenerateRandomString(96); // JS dùng D(96)
+        //    CodeChallenge = BIDVHelper.GeneratePkceChallenge(CodeVerifier);
+        //}
+
+        public void generateLoginUrl()
+        {
             State = BIDVHelper.GenerateUuidV4();
             Nonce = BIDVHelper.GenerateUuidV4();
 
@@ -53,7 +63,6 @@ namespace BIDV_Winform.Services
         {
             try
             {
-                // Domain may include leading dot; CookieContainer.Add requires a Uri
                 var host = domain?.TrimStart('.') ?? "www.bidv.vn";
                 var uri = new Uri($"https://{host}");
                 var cookie = new Cookie(name, value, path, domain)
@@ -211,75 +220,79 @@ namespace BIDV_Winform.Services
         /// <summary>
         /// Gọi API đăng nhập authenticate với payload đã mã hóa
         /// </summary>
-        public async Task<LoginResult> LoginAsync(string encryptedPayload, string actionUrl, string loginUrl)
+        public async void FormSubmitAsync(string encryptedPayload, string actionUrl, string loginUrl)
         {
             try
             {
-                // 1. Chuẩn bị Form Data
                 var formData = new Dictionary<string, string>
                 {
                     { "encrypted_payload", encryptedPayload }
                 };
                 var content = new FormUrlEncodedContent(formData);
-
-                // 2. Gửi POST Request
-
-                System.Diagnostics.Debug.WriteLine("=== Before Login Request ===");
-                PrintCookies(loginUrl);
-                PrintCookies(loginUrl);
+   
+                //System.Diagnostics.Debug.WriteLine("=== Before Login Request ===");
+                //PrintCookies(loginUrl);
 
                 HttpResponseMessage response = await _httpClient.PostAsync(actionUrl, content);
 
-                System.Diagnostics.Debug.WriteLine("=== After Login Request ===");
-                PrintCookies(loginUrl);
-                PrintCookies(loginUrl);
+                //System.Diagnostics.Debug.WriteLine("=== After Login Request ===");
+                //PrintCookies(loginUrl);
+
                 string html = await response.Content.ReadAsStringAsync();
                 File.WriteAllText("debug.html", html);
-                MessageBox.Show(response.StatusCode.ToString());
-                // 3. Xử lý phản hồi (Response)
-                // Chúng ta CHỈ tìm kiếm Status 302 Found
-                if (response.StatusCode == HttpStatusCode.Found) // 302
-                {
-                    string location = response.Headers.Location?.OriginalString;
+        //        MessageBox.Show(response.StatusCode.ToString());
 
-                    if (string.IsNullOrEmpty(location))
-                    {
-                        return new LoginResult { ErrorMessage = "Lỗi: Server trả về 302 nhưng không có Location header." };
-                    }
+                updateHtml(html);
+                string location = response.Headers.Location?.OriginalString;
 
-                    // 4. Phân biệt thành công hay thất bại
-                    if (location.StartsWith(ExpectedRedirectUriStart))
-                    {
-                        // THÀNH CÔNG! Chuyển hướng về trang app với 'code'
-                        return new LoginResult { IsSuccess = true, RedirectUrl = location };
-                    }
-                    else
-                    {
-                        // THẤT BẠI! (Ví dụ: sai mật khẩu, sai captcha)
-                        // Server chuyển hướng về lại trang login
-                        return new LoginResult { ErrorMessage = "Thông tin đăng nhập hoặc Captcha không chính xác." };
-                    }
+                MessageBox.Show(location);
+                //if (response.StatusCode == HttpStatusCode.Found) // 302
+                //{
+                //    string location = response.Headers.Location?.OriginalString;
+
+                //    MessageBox.Show(location);
+                //}
+                //else
+                //{
+                //    MessageBox.Show(response.StatusCode.ToString());
+                //}
+                    //if (response.StatusCode == HttpStatusCode.Found) // 302
+                    //{
+                    //    string location = response.Headers.Location?.OriginalString;
+
+                    //    if (string.IsNullOrEmpty(location))
+                    //    {
+                    //        return new LoginResult { ErrorMessage = "Lỗi: Server trả về 302 nhưng không có Location header." };
+                    //    }
+
+                    //    // 4. Phân biệt thành công hay thất bại
+                    //    if (location.StartsWith(ExpectedRedirectUriStart))
+                    //    {
+                    //        // THÀNH CÔNG! Chuyển hướng về trang app với 'code'
+                    //        return new LoginResult { IsSuccess = true, RedirectUrl = location };
+                    //    }
+                    //    else
+                    //    {
+                    //        // THẤT BẠI! (Ví dụ: sai mật khẩu, sai captcha)
+                    //        // Server chuyển hướng về lại trang login
+                    //        return new LoginResult { ErrorMessage = "Thông tin đăng nhập hoặc Captcha không chính xác." };
+                    //    }
+                    //}
+
+                    //// Nếu server trả về 200 OK (nghĩa là nó chỉ tải lại trang login)
+                    //if (response.IsSuccessStatusCode)
+                    //{
+                    //    return new LoginResult { ErrorMessage = "Đăng nhập thất bại (Server trả về 200 OK, có thể do session hết hạn)." };
+                    //}
+
+                    //// Các lỗi khác (500, 404...)
+                    //return new LoginResult { ErrorMessage = $"Lỗi máy chủ: {response.StatusCode}" };
                 }
-
-                // Nếu server trả về 200 OK (nghĩa là nó chỉ tải lại trang login)
-                if (response.IsSuccessStatusCode)
-                {
-                    return new LoginResult { ErrorMessage = "Đăng nhập thất bại (Server trả về 200 OK, có thể do session hết hạn)." };
-                }
-
-                // Các lỗi khác (500, 404...)
-                return new LoginResult { ErrorMessage = $"Lỗi máy chủ: {response.StatusCode}" };
-            }
             catch (Exception ex)
             {
-                return new LoginResult { ErrorMessage = $"Lỗi mạng: {ex.Message}" };
+                MessageBox.Show(ex.Message );
+               // return new LoginResult { ErrorMessage = $"Lỗi mạng: {ex.Message}" };
             }
         }
-
-
-        // ---- Helpers ----
-
-        // ✅ Sinh UUID v4 tương đương hàm h() trong JS
-     
     }
 }

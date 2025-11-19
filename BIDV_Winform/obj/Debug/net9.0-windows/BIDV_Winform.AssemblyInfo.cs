@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BIDV_Winform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cd44385fbced979a757bfb460d970d359002641")]
 [assembly: System.Reflection.AssemblyProductAttribute("BIDV_Winform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BIDV_Winform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

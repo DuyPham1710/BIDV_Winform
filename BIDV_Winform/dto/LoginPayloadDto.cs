@@ -13,19 +13,19 @@ namespace BIDV_Winform.dto
     /// </summary>
     public class LoginPayloadDto
     {
-        [JsonProperty("username")]
+        [JsonProperty("username", Order = 1)]
         public string Username { get; set; }
 
-        [JsonProperty("password")]
+        [JsonProperty("password", Order = 2)]
         public string Password { get; set; }
 
-        [JsonProperty("captchaValue")]
+        [JsonProperty("captchaValue", Order = 3)]
         public string CaptchaValue { get; set; }
 
-        [JsonProperty("captchaTransId")]
+        [JsonProperty("captchaTransId", Order = 4)]
         public string CaptchaTransId { get; set; }
 
-        [JsonProperty("typeSubmit")]
-        public string typeSubmit { get; set; } = "";
+        [JsonProperty("typeSubmit", Order = 5)]
+        public string TypeSubmit { get; set; } = "";
     }
 }
